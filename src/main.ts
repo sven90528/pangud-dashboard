@@ -6,14 +6,47 @@ import {
   // create naive ui
   create,
   // component
+  NConfigProvider,
+  NLayout,
+  NLayoutSider,
+  NLayoutHeader,
+  NLayoutContent,
   NButton,
   NCollapse,
   NCollapseItem,
   NAlert,
+  NMenu,
+  NSwitch,
+  NIcon,
+  NDropdown,
+  NAvatar,
+  NForm,
+  NFormItem,
+  NInput,
+  NCheckbox,
 } from "naive-ui";
 
 const naive = create({
-  components: [NButton, NCollapse, NCollapseItem, NAlert],
+  components: [
+    NConfigProvider,
+    NLayout,
+    NLayoutSider,
+    NLayoutHeader,
+    NLayoutContent,
+    NButton,
+    NCollapse,
+    NCollapseItem,
+    NAlert,
+    NMenu,
+    NSwitch,
+    NIcon,
+    NDropdown,
+    NAvatar,
+    NForm,
+    NFormItem,
+    NInput,
+    NCheckbox,
+  ],
 });
 
 const app = createApp(App);

@@ -1,33 +1,38 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+  <n-config-provider :theme="theme" :theme-overrides="getThemeOverrides">
+    <div id="app">
+      <!-- <Layout :inverted="inverted" /> -->
+      <router-view />
+    </div>
+  </n-config-provider>
 </template>
+<script lang="ts">
+import { Vue, Options } from "vue-class-component";
 
-<style lang="scss">
-html,
-body {
-  height: 100%;
-}
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  height: 100%;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+import Layout from "@/layout/Index.vue";
+import { lighten } from "@/utils/index";
+@Options({
+  components: {
+    Layout,
+  },
+})
+export default class App extends Vue {
+  private theme = null; // 默认应用主题
+  private inverted = false; // 是否反转主题颜色
+  private appTheme = "#0960bd"; // 自定义应用主题
+  get getThemeOverrides(): unknown {
+    const lightenStr = lighten(this.appTheme, 6);
+    return {
+      common: {
+        primaryColor: this.appTheme,
+        primaryColorHover: lightenStr,
+        primaryColorPressed: lightenStr,
+      },
+    };
   }
 }
+</script>
+
+<style lang="scss">
+@import "./styles/index.scss";
 </style>

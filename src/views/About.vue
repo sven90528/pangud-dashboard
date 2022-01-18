@@ -1,17 +1,12 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <e-charts :options="option" />
-    <n-alert title="alert" type="success"></n-alert>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import ECharts from "@/components/ECharts.vue";
 export default defineComponent({
-  name: "Abount",
-
-  components: { ECharts },
+  name: "About",
   data() {
     return {
       option: {

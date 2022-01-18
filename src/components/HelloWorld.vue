@@ -1,5 +1,5 @@
 <template>
-  <n-button>naive-ui</n-button>
+  <n-button @click="about">about</n-button>
   <n-collapse>
     <n-collapse-item title="青铜" name="1">
       <div>可以</div>
@@ -11,6 +11,7 @@
       <div>真棒</div>
     </n-collapse-item>
   </n-collapse>
+  <div class="aaa">{{ a }}</div>
 </template>
 
 <script lang="ts">
@@ -23,6 +24,18 @@ import { Options, Vue } from "vue-class-component";
 })
 export default class HelloWorld extends Vue {
   msg!: string;
+  mounted(): void {
+    console.log(this.msg);
+    // console.log(this.a);
+  }
+  about(): void {
+    this.$router.push("/about");
+  }
+  setup(): unknown {
+    return {
+      a: "xx",
+    };
+  }
 }
 </script>
 
