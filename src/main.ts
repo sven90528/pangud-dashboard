@@ -25,7 +25,7 @@ import {
   NInput,
   NCheckbox,
 } from "naive-ui";
-
+import MButton from "@/components/button/Index.vue";
 const naive = create({
   components: [
     NConfigProvider,
@@ -50,7 +50,7 @@ const naive = create({
 });
 
 const app = createApp(App);
-
+app.component("m-button", MButton);
 app.use(naive);
 
 app.use(store).use(router).mount("#app");

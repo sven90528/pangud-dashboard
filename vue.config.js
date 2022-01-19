@@ -18,13 +18,11 @@ module.exports = {
     port: 8080,
     proxy: {
       "/api/": {
-        // target: 'http://www.xxxxxx.com/',
-        target: "https://api-athena.changhong.com", //自己的ip地址
-        // target: "",
+        target: "https://api-athena.changhong.com",
         changeOrigin: true,
-        secure: true,
+        secure: false,
         pathRewrite: {
-          "^/api/": "/",
+          "^/api/": "/api/v1/",
         },
       },
     },

@@ -61,7 +61,7 @@
 
 <script lang="ts">
 import { Vue } from "vue-class-component";
-// import { login } from "@/api/index";
+import { login } from "@/api/index";
 export default class Login extends Vue {
   private formInline = {
     username: "admin",
@@ -70,8 +70,13 @@ export default class Login extends Vue {
   private autoLogin: Boolean = true;
   private loading: Boolean = false;
   private handleSubmit() {
-    // login();
     this.$router.replace("/");
+    login().then(() => {
+      // this.$router.replace("/");
+    });
+  }
+  private cli() {
+    console.log(",,");
   }
 }
 </script>
